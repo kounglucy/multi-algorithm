@@ -1,0 +1,323 @@
+1. Mybatis
+	- CRUD의 기능을 xml로 구조화하여 Mapper 설정 파일을 한 JDBC구현 프레임 워크
+	- mybatis-config.xml
+		- mybatis에서 사용될 DB를 연동하기 위한 설정값들과 mapper.xml을 등록하기 위한 xml
+	- mybatis-mapper.xml
+		- mybatis에서 사용될 SQL 구문을 담고 있는 xml
+
+2. 설정
+	1) xml 환경 설정
+		- xml 파일 생성시 config or mapper 파일인지 명시
+		- Preferences> XML > XML Catalog > Add...
+		
+			- config.dtd
+				Location : http://mybatis.org/dtd/mybatis-3-config.dtd
+				Key : //mybatis.org//DTD Config 3.0//EN
+			
+			- mapper.dtd
+				Location : http://mybatis.org/dtd/mybatis-3-mapper.dtd
+				Key : //mybatis.org/DTD Mapper 3.0//EN
+			
+		Apply and Close
+
+	2) pom.xml 설정
+		* JDK8, JDK11 버전 주의!!
+	
+	
+		- Mybatis 라이브러리 등 maven을 통해 설정
+			<?xml version="1.0" encoding="UTF-8"?>
+			<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+				<modelVersion>4.0.0</modelVersion>
+				<groupId>com.spring</groupId>
+				<artifactId>mybatis</artifactId>
+				<name>step02_MyBatis</name>
+				<packaging>war</packaging>
+				<version>1.0.0-BUILD-SNAPSHOT</version>
+				<properties>
+					<java-version>1.8</java-version>
+					<org.springframework-version>5.2.4.RELEASE</org.springframework-version>
+					<org.aspectj-version>1.9.19</org.aspectj-version>
+					<org.slf4j-version>1.7.36</org.slf4j-version>
+				</properties>
+				<dependencies>
+					<!-- Spring -->
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
+						<version>${org.springframework-version}</version>
+						<exclusions>
+							<!-- Exclude Commons Logging in favor of SLF4j -->
+							<exclusion>
+								<groupId>commons-logging</groupId>
+								<artifactId>commons-logging</artifactId>
+							 </exclusion>
+						</exclusions>
+					</dependency>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-webmvc</artifactId>
+						<version>${org.springframework-version}</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+					<dependency>
+					    <groupId>org.springframework</groupId>
+					    <artifactId>spring-tx</artifactId>
+					    <version>${org.springframework-version}</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+					<dependency>
+					    <groupId>org.springframework</groupId>
+					    <artifactId>spring-jdbc</artifactId>
+					    <version>${org.springframework-version}</version>
+					</dependency>
+					
+					<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+					<dependency>
+					    <groupId>org.mybatis</groupId>
+					    <artifactId>mybatis</artifactId>
+					    <version>3.5.13</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+					<dependency>
+					    <groupId>org.mybatis</groupId>
+					    <artifactId>mybatis-spring</artifactId>
+					    <version>2.1.0</version>
+					</dependency>
+					
+					<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+					<dependency>
+					    <groupId>com.oracle.database.jdbc</groupId>
+					    <artifactId>ojdbc8</artifactId>
+					    <version>12.2.0.1</version>
+					</dependency>
+			
+					<!-- AspectJ -->
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjrt</artifactId>
+						<version>${org.aspectj-version}</version>
+					</dependency>	
+					
+					<!-- Logging -->
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+						<version>${org.slf4j-version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>jcl-over-slf4j</artifactId>
+						<version>${org.slf4j-version}</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+						<version>${org.slf4j-version}</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+						<version>1.2.15</version>
+						<exclusions>
+							<exclusion>
+								<groupId>javax.mail</groupId>
+								<artifactId>mail</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>javax.jms</groupId>
+								<artifactId>jms</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>com.sun.jdmk</groupId>
+								<artifactId>jmxtools</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>com.sun.jmx</groupId>
+								<artifactId>jmxri</artifactId>
+							</exclusion>
+						</exclusions>
+						<scope>runtime</scope>
+					</dependency>
+			
+					<!-- @Inject -->
+					<dependency>
+						<groupId>javax.inject</groupId>
+						<artifactId>javax.inject</artifactId>
+						<version>1</version>
+					</dependency>
+							
+					<!-- Servlet -->
+			<!-- 
+					<dependency>
+						<groupId>javax.servlet</groupId>
+						<artifactId>servlet-api</artifactId>
+						<version>2.5</version>
+						<scope>provided</scope>
+					</dependency>
+					<dependency>
+						<groupId>javax.servlet.jsp</groupId>
+						<artifactId>jsp-api</artifactId>
+						<version>2.1</version>
+						<scope>provided</scope>
+					</dependency>
+			 -->		
+			 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+					<dependency>
+					    <groupId>javax.servlet</groupId>
+					    <artifactId>javax.servlet-api</artifactId>
+					    <version>4.0.1</version>
+					    <scope>provided</scope>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+					<dependency>
+					    <groupId>javax.servlet.jsp</groupId>
+					    <artifactId>javax.servlet.jsp-api</artifactId>
+					    <version>2.3.3</version>
+					    <scope>provided</scope>
+					</dependency>
+			 		<dependency>
+						<groupId>javax.servlet</groupId>
+						<artifactId>jstl</artifactId>
+						<version>1.2</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+					<dependency>
+					    <groupId>org.projectlombok</groupId>
+					    <artifactId>lombok</artifactId>
+					    <version>1.18.24</version>
+					    <scope>provided</scope>
+					</dependency>
+			
+					<dependency>
+						<groupId>junit</groupId>
+						<artifactId>junit</artifactId>
+						<version>4.13.2</version>
+						<scope>test</scope>
+					</dependency>        
+				</dependencies>
+			    <build>
+			        <plugins>
+			            <plugin>
+			                <artifactId>maven-eclipse-plugin</artifactId>
+			                <version>2.9</version>
+			                <configuration>
+			                    <additionalProjectnatures>
+			                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+			                    </additionalProjectnatures>
+			                    <additionalBuildcommands>
+			                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+			                    </additionalBuildcommands>
+			                    <downloadSources>true</downloadSources>
+			                    <downloadJavadocs>true</downloadJavadocs>
+			                </configuration>
+			            </plugin>
+			            <plugin>
+			                <groupId>org.apache.maven.plugins</groupId>
+			                <artifactId>maven-compiler-plugin</artifactId>
+			                <version>2.5.1</version>
+			                <configuration>
+			                    <source>1.8</source>
+			                    <target>1.8</target>
+			                    <compilerArgument>-Xlint:all</compilerArgument>
+			                    <showWarnings>true</showWarnings>
+			                    <showDeprecation>true</showDeprecation>
+			                </configuration>
+			            </plugin>
+			            <plugin>
+			                <groupId>org.codehaus.mojo</groupId>
+			                <artifactId>exec-maven-plugin</artifactId>
+			                <version>1.2.1</version>
+			                <configuration>
+			                    <mainClass>org.test.int1.Main</mainClass>
+			                </configuration>
+			            </plugin>
+			        </plugins>
+			    </build>
+			</project>
+
+	3) src/main/resources > *.xml 생성 및 설정
+		- xml 파일 생성
+			XML File > *.xml > Create XML file from a DTD file > select XML Catalog entry > 해당 파일 관련 설정 선택
+		
+		- xml 파일 설정
+			- mybatis-config.xml
+				* https://mybatis.org/mybatis-3/ko/configuration.html
+			
+					엘리먼트			용도
+				properties		프로퍼티 파일 경로
+								<property>에 개별 프로퍼티 정의 (value=${프로퍼티명} 참조 가능)
+				settings		프레임워크 실행 환경 설정
+				typeAliases		자바 클래스 alias 설정
+				typeHandlers	컬럼 값을 자바 객체로, 자바 객체를 컬럼 값으로 변환 설정
+				environments	프레임워크에서 사용할 데이터베이스 정보(트랜잭션 관리자, 데이터 소스) 설정
+									<transactionManager>
+									JDBC : 직접 JDBC의 commit, rollback 기능을 사용하여 MyBatis 자체에서 트랜잭션을 관리
+									
+									<dataSource>
+									POOLED : MyBatis 자체 DB 커넥션풀 사용
+								
+				mappers			SQL mapper 파일 경로
+	
+	
+			- *mapper.xml
+				* https://mybatis.org/mybatis-3/ko/sqlmap-xml.html
+				- mapper 태그의 namespace 속성
+					- 위의 공식 문서 참조
+						* 별칭
+						* 파라미터 설정 : ${ }, #{ }
+							- ${ } : Statement
+							- #{ } : PreparedStatement
+									  단일 파라미터 : #{}
+									  다중 파라미터 : map, 객체
+	
+	4) SqlSessionFactory, SqlSession을 위한 Configuration(@Configuration)
+		- Factory Pattern
+		1) public static SqlSessionFactory getSqlSessionFactory()
+		2) public static SqlSession getSqlSession()
+		
+	5) DB 접속 객체 생성까지 완료했으니, Controller(@Controller), Service(@Service), Mapper(@Mapper) 생성
+		- Controller : 요청을 받아들이는 servlet (-> 이후 화면 전환까지 가능)
+		- Service : 비즈니스 로직 담당
+		- Mapper : 인터페이스로 수행 기능 정의 및 실제 수행 query(mapper.xml) 설정과 연결
+	
+	rf) HikariCP(Hikari Connection Pool)
+		* https://github.com/brettwooldridge/HikariCP
+		- HikariCP는 가벼운 용량과 빠른 속도를 가지는 JDBC Connection Pool 프레임워크
+		- Spring Boot 기본 설정 CP
+		- 버전 
+			JDK 8 : 4.0.3, JDK 11: 5.0.1
+		
+		-설정
+			- pom.xml
+				<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+				<!-- https://github.com/brettwooldridge/HikariCP -->
+				<!-- JDK 11버전부터는 5.0.1버전 사용 -->
+				<dependency>
+				    <groupId>com.zaxxer</groupId>
+				    <artifactId>HikariCP</artifactId>
+				    <version>4.0.3</version>
+				</dependency>
+		
+			- root-context.xml
+				<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+					<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+					<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+					<property name="username" value="?" />
+					<property name="password" value="?" />
+				</bean>
+				
+				<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+					<constructor-arg ref="hikariConfig" />
+				</bean>
+				
+				<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+					<property name="dataSource" ref="dataSource" />
+					<property name="mapperLocations" value="classpath:?" />	
+				</bean>
+			
+				<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+					<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+				</bean>			

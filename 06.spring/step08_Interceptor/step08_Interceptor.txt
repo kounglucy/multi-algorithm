@@ -1,0 +1,25 @@
+1. 인터셉터(Interceptor)
+	* https://justforchangesake.files.wordpress.com/2014/05/spring-request-lifecycle.jpg
+	(출처 :https://justforchangesake.files.wordpress.com/2014/05/spring-request-lifecycle.jpg)
+	- controller 도달 전, 요청 HttpRequest과 응답 HttpResponse을 가로채는 역할
+	- 세션 관리,인증 등의 역할을 수행
+	
+	- 메소드
+		- preHandle Method
+			- 컨트롤러가 호출되기 전 실행 메소드
+			- 요청 데이터 전처리,가공
+		- postHandle Method
+			- 컨트롤러가 호출된 후 실행 메소드
+			- 후처리 작업
+		- afterCompletion Method
+			- 뷰 생성을 포함한 모든 작업이 완료 후 실행 메소드
+	
+* 참고) 필터와의 차이점
+- Filter
+	- 보안 관련 공통 작업
+	- 모든 요청에 대한 로깅 또는 감사
+	- 이미지/데이터 압축 및 문자열 인코딩
+- Interceptor
+	- 인증/인가 등과 같은 공통 작업
+	- Controller로 넘겨주는 정보의 가공
+	- API 호출에 대한 로깅 또는 감사

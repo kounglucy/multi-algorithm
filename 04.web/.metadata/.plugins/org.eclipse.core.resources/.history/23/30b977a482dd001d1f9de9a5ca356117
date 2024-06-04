@@ -1,0 +1,5 @@
+package customer.dto;
+
+public class Customer {
+
+}

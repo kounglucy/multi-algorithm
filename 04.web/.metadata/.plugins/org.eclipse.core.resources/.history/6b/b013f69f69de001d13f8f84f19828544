@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dept Search</title>
+</head>
+<body>
+	
+	<!-- deptno를 입력해서 해당 부서의 dname만 출력 -->
+	<h2>DEPT 검색</h2>
+	
+	<form action="getDept">
+		<input type="text" name="deptno">
+		<input type="submit" value="검색">
+	</form>
+	
+</body>
+</html>

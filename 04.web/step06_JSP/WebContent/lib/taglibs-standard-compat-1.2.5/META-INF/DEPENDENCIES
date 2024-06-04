@@ -1,0 +1,17 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+Apache Standard Taglib 1.0 Compatibility
+
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - Apache Standard Taglib Implementation (http://tomcat.apache.org/taglibs/standard-1.2.5/taglibs-standard-impl) org.apache.taglibs:taglibs-standard-impl:bundle:1.2.5
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Standard Taglib Specification API (http://tomcat.apache.org/taglibs/standard-1.2.5/taglibs-standard-spec) org.apache.taglibs:taglibs-standard-spec:bundle:1.2.5
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+

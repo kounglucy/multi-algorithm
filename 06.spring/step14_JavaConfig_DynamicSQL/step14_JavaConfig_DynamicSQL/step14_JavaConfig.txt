@@ -1,0 +1,54 @@
+[MyBatis Dynamic SQL]
+	* https://mybatis.org/mybatis-3/ko/dynamic-sql.html
+	- 전달되는 파라미터에 따른 동적인 SQL Query를 생성하는 문법
+
+- <if> : test 속성을 만족하면 해당 쿼리 추가(단일 조건)
+
+*** 주의
+"test" 속성의 값에는 '<' 문자가 포함되면 안됨.
+
+	- CDATA
+	CDATA 태그는 XML 문서 안에 특수 문자를 포함시킬 때 사용
+	XML Parsing을 Text로 바꿔줌.
+
+	기호			대체식	예제
+	<			lt		<if test="parameter1 lt 0">
+	>			gt		<if test="parameter1 gt 0">
+	<=, =<		lte		<if test="parameter1 lte 0">
+	>=, =>		gte		<if test="parameter1 gte 0">
+
+	예제)
+	- 단일 처리
+	<select id="getUser" resultType="UserVO">
+		select * from user
+		<if test="id != null">
+			where id  <![CDATA[<]]> 3;
+		</if>
+	</select>
+
+	- 다중 처리 :
+		하나의 쿼리에 여러 개의 부등호 사용, 부등호 상관없이 작업을 진행해야 할 때
+	<select id="getUserList" resultMap="UserVO">
+		<![CDATA[
+		select *
+		from user
+		where id > 3
+		]]>
+	</select>
+	
+- <choose>, <when>, <otherwise> : 다중 조건
+
+- <where>, <trim> : 조건에 따라 where을 추가 할 때 사용하는 태그
+	- trim
+		prefixOverrides: 하위 엘리먼트 처리 후 내용의 맨 앞에 해당 문자열이 있다면 삭제
+		suffixOverrides: 하위 엘리먼트 처리 후 내용의 맨 뒤에 해당 문자열이 있다면 삭제
+		prefix: 하위 엘리먼트 처리 후 내용이 있다면 가장 앞에 붙임
+		suffix: 하위 엘리먼트 처리 후 내용이 있다면 가장 뒤에 붙임
+		
+- <set> : update에서 null 여부에 따라 동적인 update 구문 생성 태그
+- <foreach> : 배열 타입의 parameter를 받을 때 사용하는 태그
+	collection : 값 목록을 가진 객체로 배열 또는 List
+	item : collection 내의 개별 값을 나타내는 변수 이름
+	open : 해당 블럭을 시작할 때 사용할 기호(주로 '(' )
+	close : 해당 블럭을 종료할 때 사용할 기호( 주로 ')' )
+	separator : 각 item을 구분할 분리자 기호( 주로 ',' )

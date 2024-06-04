@@ -1,0 +1,69 @@
+body {
+  font-family: Arial;
+  margin: 0;
+}
+/* Header/Logo Title */
+header {
+  padding: 60px 0px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+/*   background: #462c91; */
+  background: #336699;
+  color: white;
+  font-size: 30px;
+}
+
+/* Style the footer */
+footer {
+/*   background-color: #462c91; */
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  background: #336699;
+  color: white;
+  font-size: 10px;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+input[type="button"],input[type="submit"],input[type="reset"] {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 13px;
+    border-radius: 7px;
+    border:1px solid #336699;
+    box-shadow: 0px 0px 0px;
+    background-color:white;
+    color: #336699;
+    margin:0 10px;
+    font-weight: 600;
+}
+input[type="button"]:hover,input[type="submit"]:hover,input[type="reset"]:hover {
+    text-decoration: none;
+    scale: 103%;
+}
+input[type="text"]{
+	border: 1px solid #336699;
+	padding:8px 10px;
+	border-radius: 10px;
+	width: 90%;
+}
+
+table tr:nth-child(2n+1){
+	background-color: rgb(240,240,240);
+}
+
+a:link {
+  color : black;
+}
+a:visited {
+  color : black;
+}
+a:hover {
+  color : #336699;
+}
+a:active {
+  color : black
+}

@@ -1,0 +1,97 @@
+[step01_JPABasic]
+
+* https://www.oracle.com/technical-resources/articles/javase/persistenceapi.html
+
+1. 개념
+	- ORM(Object Relational Mapping)
+		- 객체가 테이블이 되도록 매핑 시켜주는 기술
+		- Java의 객체 지향적인 특성을 최대화 
+		- Query가 아닌 객체의 메소드 호출만으로도 SQL 실행 가능 -> 생산성 향상
+		- 복잡한 쿼리의 경우 표현의 한계, 성능 저하 가능성
+	
+	- JPA(Java Persistent API)
+		- Java의 ORM API 표준 명세(Interface)
+		- 실제 프로젝트 내에서 활용시 구현체가 필요
+		- 이에 해당하는 구현 ORM 프레임 워크 : *Mybatis, *Hibernate, EclipseLink 등
+		
+		- Mybatis
+			* https://mybatis.org/mybatis-3/
+			- SQL, 저장프로시저 등 고급 매핑을 지원하는 JPA Framework
+			- Map 인터페이스, Java POJO(Plain Old Java Object) 매핑을 XML, Annotation 활용
+			- 개발자 지정의 SQL 및 복잡한 쿼리 작성 및 실행에 편리
+			- DB 벤더사에 종속적(각기 다른 문법 적용) -> 프로젝트 구조는 단조로우나 문법별 유지보수에 한계
+			
+		- Hibernate 
+			* Plain Old Java Object
+			- 패러다임의 불일치(단순 데이터 전달 목적으로만 객체 사용과 DB 매핑에서의 오류, 예시. 객체에서 다른 객체 참조시 해당 필드값을 참조 pk 컬럼을 활용)를 극복
+			- 메소드 호출만으로 쿼리 수행 -> 생산성 향상, SQL 모니터링 필요
+			- DDL, DML 생성 및 실행 -> 유지보수 
+			- DB 종속적이지 않음 -> 확장성 용이
+
+
+	- 용어
+		- Entity : DB 테이블과 매핑되는 Java의 객체
+		- EntityManagerFactory : EntityManager를 생성 및 관리 클래스
+								 EntityManager간의 독립성 유지(동시성, 병렬성)
+								 DB당 한 개의 EMF를 사용(관리비용이 크기 때문) 
+		- EntityManager : Entity 관리 클래스
+			- Persistence Context 영속성 컨텍스트 : 엔티티를 비휘발성으로 저장하고 관리하는 영역
+				- Persistence 영속성 : 비휘발성
+				- Context 컨텍스트 : 프로젝트 내부에서 프로젝트 전체 또는 특정 객체들을 관리하는 영역
+				
+				- Entity LifeCycle 생명주기
+					* https://docs.oracle.com/cd/E21764_01/apirefs.1111/e13946/ejb3_overview_em_lifecycle.html
+					- 비영속(new/transient)	: 영속성 컨텍스트와 전혀 관계가 없는 상태
+					- 영속(managed)			: 영속성 컨텍스트에 저장된 상태
+					- 준영속(detached)		: 영속성 컨텍스트에 저장되었다가 분리된 상태
+					- 삭제(removed)			: 삭제된 상태
+					
+				- Transaction 트랜잭션 : 작업단위
+					* https://docs.oracle.com/database/121/CNCPT/transact.htm#CNCPT89326
+2. 속성
+	- JPA 표준 속성
+		- javax.persistence.jdbc.driver 	: JDBC 드라이버
+		- javax.persistence.jdbc.user 		: 데이터베이스 접속 아이디
+		- javax.persistence.jdbc.password 	: 데이터베이스 접속 비밀번호
+		- javax.persistence.jdbc.url 		: 데이터베이스 접속 URL
+	
+	- 하이버네이트 설정
+		- hibernate.dialect 					: 데이터베이스 방언
+		- hibernate.show_sql 					: 실행 SQL 출력
+		- hibernate.format_sql 					: SQL 정렬
+		- hibernate.use_sql_comments 			: 주석 출력
+		- hibernate.id.new_generator_mappings 	: JPA 표준에 맞는 새로운 키 생성 전략 활용
+		- hibernate.hbm2ddl.auto
+			create		: DROP + CREATE
+			create-drop	: CREATE + 종료시 DROP
+			update		: DDL 변경시 반영
+			none		: 특이 설정 없음(기존 유지)
+			
+
+3. 어노테이션
+	@Entity : JPA가 관리할 객체임을 명시, 기본생성자가 필수로 필요함
+	
+	@Table : 맵핑할 DB 테이블 이름을 명시
+	
+	@Id : 기본 키(PK)
+	
+	@GeneratedValue : 기본 키 맵핑 전략
+		- strategy 	: 자동할당
+		- TABLE 	: 순번 테이블 사용
+		- SEQUENCE 	: DB 시퀀스 사용
+		- IDENTITY 	: DB에 위임
+		- AUTO 		: 설정된 Dialect별 자동 선택 (MySQL은 IDENTITY, Oracle은 SEQUENCE)
+		- generator : 직접할당
+	
+	@Column : 필드와 칼럼을 맵핑
+		- name : 칼럼명
+		- nullable : NOT NULL 여부
+		- unique
+		- updatable
+		
+	@Temporal : 날짜 타입 매핑
+		- DATE : 날짜만, 
+		- TIME : 시간만
+		- TIMESTAMP : 날짜+시간
+		
+	@Transient : 특정 필드를 칼럼에 맵핑하지 않음

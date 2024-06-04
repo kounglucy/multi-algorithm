@@ -1,0 +1,8 @@
+[학습]
+1. MVC 패턴 
+	- https://www.oracle.com/technical-resources/articles/javase/mvc.html
+	- 어플리케이션을 계층별로 구분 하는 패턴
+	- 구조
+		- M Model : 핵심 로직
+		- V View : 출력 로직 
+		- C Controller : View와 Model 연결 로직

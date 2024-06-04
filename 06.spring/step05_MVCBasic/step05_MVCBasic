@@ -1,0 +1,44 @@
+1. spring-mvc 
+* https://docs.spring.io/spring-framework/docs/3.0.0.M4/spring-framework-reference/html/ch15s02.html
+
+2. Controller 
+	- Annotation
+	@Controller 	: controller 역할의 bean 등록
+	@RestController : controller 역할의 bean 등록
+	@RequestMapping : 해당 메소드의 url 매핑 및 method 등 여러가지 설정 값 지정
+	@*Mapping		: 메소드별 Mapping 어노테이션
+	@RequestParam	: server로 전송되는 parameter 획득
+	@PathVariable	: url path를 통해 전달되는 parameter 획득
+
+	- Model, ModelAndView
+		- Model
+				Method			설명
+			addAttribute	Model에 속성추가
+			getAttribute	Model에 있는 속성을 조회
+			addAttributes	Model에 속성을 여러개 추가
+			getAttributes	Model에 속성을 여러개 조회
+
+		- ModelAndView
+				Method			설명
+			setViewName		view 이름을 설정
+			getViewName		view 이름을 조회
+			setView			view 설정
+			getView			view 조회
+			hasView			설정되어있는 view 존재 여부 확인
+			getModelMap		내부의 모델 Map 조회
+			getModel		내부 모델 조회
+			getStatus		상태 설정
+
+	- Controller 리턴타입
+		 * String : sevlet-context.xml 정의가 되어 있는 것 처럼 jsp 파일의 이름
+		 * void : 호출하는 URL과 동일한 이름의 jsp 
+		 * DTO : JSON 타입의 데이터로 변환
+		 * Model, ModelAndView : 데이터 반환시 화면까지 지정하는 경우
+		 * ResponseEntity : 응답시, HTTP 헤더 정보와 내용을 가공
+		 * HttpHeaders : 응답 내용 없이 HTTP 헤더 메세지만 리턴
+		 
+	- 참고
+		- PostMan
+			* https://www.postman.com/downloads/
+			- 요청과 응답 결과 확인 테스트를 위한 도구
+			6782

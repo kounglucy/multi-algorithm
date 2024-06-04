@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.spring.mapper.TradingMapper">
+
+	<select id="getInvestorByUserIdAndPassword" resultType="com.spring.dto.Investor">
+		SELECT
+			user_id,
+			password,
+			user_name,
+			user_money
+		FROM Investor
+		WHERE user_id = #{user_id} AND password = #{password}
+	</select>
+	
+	<select id="getAllTrading" resultType="com.spring.dto.Trading">
+ 		SELECT 
+ 			trading_id, 
+			stocks_code, 
+			user_id,
+			volume,
+			trading_price,
+			status 
+		FROM Trading
+ 	</select>
+ 	
+ 	<select id="getAllStocks" resultType = "com.spring.dto.Stocks">
+		SELECT 
+			stocks_code,
+			price, 
+			company_name 
+		FROM stocks
+	</select>
+	
+	<select id="getStocksByCode">
+		SELECT stocks_code, 
+				price, 
+				company_name,
+				asset,
+				debt,
+				sales,
+      		    stockdate
+		 FROM stocks WHERE stocks_code = #{stocks_code}
+	</select>
+ 	
+ 	<select id="getTradingCountById">
+ 		SELECT 
+ 			COUNT(*)
+ 		FROM trading
+ 		WHERE user_id = #{user_id}
+ 	</select>
+ 	
+ 	<select id="getInvestorMoneyByUserId">
+ 		SELECT
+ 			user_money
+ 		FROM investor
+ 		WHERE user_id = #{user_id}
+ 	</select>
+ 	
+ 	<update id="updateInvestorMoneyByUserId" parameterType="com.spring.dto.Investor">
+ 		UPDATE investor
+ 		SET user_money = #{user_money}
+ 		WHERE user_id = #{user_id}
+ 	</update>
+ 	
+ 	<insert id="insertTrading" parameterType="com.spring.dto.Trading">
+        INSERT INTO trading (trading_id,
+                             stocks_code,  
+                             user_id,      
+                             volume,
+                             trading_price, 
+                             status)
+        VALUES (#{trading_id},
+                #{stocks_code},  
+                #{user_id},      
+                #{volume},
+                #{trading_price}, 
+                #{status})         
+    </insert>  
+ 	
+ 	<select id="getTradingVolumeByCodeAndIdAndStatus" resultType="int">
+ 		SELECT SUM(volume)
+ 		FROM trading
+ 		WHERE stocks_code = #{stocks_code} AND user_id = #{user_id} AND status = #{status}
+ 	</select>
+ 	
+ 	<select id="getTradingByStocks_code" resultType="com.spring.dto.Trading">
+ 		SELECT 
+    	trading_id, 
+      stocks_code, 
+      user_id,
+      volume,
+      trading_price,
+      status 
+		 FROM Trading WHERE stocks_code = #{stocks_code}
+	</select>
+ 	
+</mapper>

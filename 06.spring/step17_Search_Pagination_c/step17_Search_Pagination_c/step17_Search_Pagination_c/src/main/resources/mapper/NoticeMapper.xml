@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+ <mapper namespace="com.spring.pagination.mapper.NoticeMapper">
+
+	<!-- insertNotice -->
+	<insert id="insertNotice" parameterType="com.spring.pagination.dto.Notice">
+			INSERT INTO notice (no, user_id, user_name, title, content, hit) 
+			VALUES (#{no}, #{userId}, #{userName}, #{title}, #{content}, #{hit})
+	</insert>
+
+	<!-- getNoticeBySearchKeyword -->
+	<select id="getNoticeBySearchKeyword" 
+			parameterType="com.spring.pagination.dto.SearchKeyword"
+			resultType="com.spring.pagination.dto.Notice">
+	
+		SELECT no, user_id, user_name, title, content, hit
+		FROM notice
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			<if test="keyword != null and keyword=''">
+			 	AND content LIKE '%'||#{keyword}||'%'
+			</if>
+		</trim>
+	</select>
+
+	<!-- getNoticeByPagination -->
+	<select id="getNoticeByPagination"
+			parameterType="com.spring.pagination.dto.PageRequestDTO" 
+			resultType="com.spring.pagination.dto.Notice">
+		<![CDATA[
+			SELECT no, title, content, hit
+			FROM (  SELECT no, title, content, hit, rownum rn
+			        FROM notice
+			        WHERE rownum <= #{pageNum} * #{amount})
+			WHERE rn > (#{pageNum} - 1) *  #{amount}
+		]]>
+	</select>
+
+	<!-- 문제 발생 :
+제대로 search + pagination 쿼리를 추가 했음에도 불구하고 
+정확한 paging이 되지 않고 있음!
+
+-이유 :
+total 개수가 검색한 결과에 대한 부분으로 넘겨지지 않고 있기때문!
+
+-해결 :
+totacCount에 대한 부분을 search 포함된 결과를 가지고 paging 할수 있도록 변경!
+
+[[NoticeMapper.xml totalCount 쿼리 수정] -->
+		<!-- getTotalCount -->
+	<select id="getTotalCount"
+			parameterType="com.spring.pagination.dto.PageRequestDTO" 
+			resultType="_int">
+		SELECT COUNT(no)
+		FROM notice
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			<if test="keyword != null and keyword !=''">
+		 		AND content LIKE '%'||#{keyword}||'%'
+			</if>
+		</trim>
+	</select>
+
+   	<!-- getNoticeWithPageRequest -->
+	<select id="getNoticeWithPageRequest"
+			parameterType="com.spring.pagination.dto.PageRequestDTO"
+			resultType="com.spring.pagination.dto.Notice">
+		
+			SELECT no, title, content, hit
+			FROM (  
+					SELECT no, title, content, hit, rownum rn
+			        FROM (
+			        		SELECT no, user_id, user_name, title, content, hit
+							FROM notice
+							<trim prefix="WHERE" prefixOverrides="AND |OR">
+								<if test="keyword != null and keyword !=''">
+								 	AND content LIKE '%'||#{keyword}||'%'
+								</if>
+							</trim>
+	        		)
+	        		<![CDATA[
+			        WHERE rownum <= #{pageNum} * #{amount}
+			        ]]>
+	    	)
+	    	<![CDATA[
+			WHERE rn > (#{pageNum} - 1) *  #{amount}
+			]]>
+	</select>
+
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 

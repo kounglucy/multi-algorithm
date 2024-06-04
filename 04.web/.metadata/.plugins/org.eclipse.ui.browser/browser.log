@@ -1,0 +1,7 @@
+
+4월 17, 2023 10:57:44.643 NEW SESSION
+4월 17, 2023 10:57:44.643 [7368:9312:0417/105744.638:ERROR:device_event_log_impl.cc(222)] [10:57:44.638] USB: usb_device_handle_win.cc:1046 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+4월 17, 2023 10:57:44.645 [7368:9312:0417/105744.638:ERROR:usb_descriptors.cc(141)] Failed to read length for configuration 1.
+4월 17, 2023 10:57:44.646 [7368:9312:0417/105744.638:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 2, got 1.
+4월 17, 2023 10:57:44.647 [7368:9312:0417/105744.638:ERROR:device_event_log_impl.cc(222)] [10:57:44.638] USB: usb_device_win.cc:95 Failed to read descriptors from \\?\usb#vid_10a5&pid_0007#5&c70d693&0&8#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+4월 17, 2023 10:57:45.935 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

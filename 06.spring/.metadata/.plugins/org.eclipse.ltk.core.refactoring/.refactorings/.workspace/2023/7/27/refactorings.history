@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;step17_Search_Pagination&apos;" deleteContents="false" description="Delete resource &apos;step17_Search_Pagination&apos;" element1="/step17_Search_Pagination" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1688546365396"/>
+</session>

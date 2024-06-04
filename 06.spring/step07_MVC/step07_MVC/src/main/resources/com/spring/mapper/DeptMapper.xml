@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mapper.DeptMapper">
+ 	 	
+ 	<select id="getAllDepts" resultType="com.spring.dto.Dept">
+ 		SELECT deptno, dname, loc FROM dept
+ 	</select>
+ 	
+ 	<select id="getDeptByDeptno" resultMap="selectDeptMap">
+ 		SELECT deptno, dname, loc FROM dept WHERE deptno = #{deptno}
+ 	</select>
+
+ 	<!-- 반환 객체 타입 - Map -->
+ 	<resultMap type="com.spring.dto.Dept" id="selectDeptMap">
+ 		<result column="deptno" property="deptno"/>
+ 		<result column="dname" property="dname"/>
+ 		<result column="loc" property="loc"/>
+ 	</resultMap>
+ 	
+  	<select id="getAllDeptsHashMap" resultType="java.util.HashMap">
+ 		SELECT deptno, dname, loc FROM dept
+ 	</select>
+ 	
+ 	<select id="getDeptHashMap" resultMap="selectDeptHashMap">
+ 		SELECT dname, deptno, loc FROM dept WHERE deptno = #{deptno}
+ 	</select>
+ 	<resultMap type="java.util.HashMap" id="selectDeptHashMap">
+ 		<result column="deptno" property="deptno"/>
+ 		<result column="dname" property="dname"/>
+ 		<result column="loc" property="loc"/>
+ 	</resultMap>
+ 	
+ 	<select id="getDnameByDeptno" parameterType="_int" resultType="string">
+		SELECT dname FROM dept WHERE deptno = #{deptno}
+ 	</select>
+ 	
+ 	<!-- ver1 -->
+ 	<!-- <select id="getDnameByDeptnoAndLoc" parameterType="hashmap" resultType="string"> -->
+ 	
+ 	<!-- ver2 -->
+ 	<select id="getDnameByDeptnoAndLoc" resultType="string">
+ 		SELECT dname FROM dept WHERE deptno = #{deptno} AND loc = #{loc}
+ 	</select>
+
+ 	
+ 	<insert id="insertDept" parameterType="com.spring.dto.Dept">
+ 		INSERT INTO dept (deptno, dname, loc) VALUES (#{deptno}, #{dname}, #{loc})
+ 	</insert>
+ 	
+ </mapper>

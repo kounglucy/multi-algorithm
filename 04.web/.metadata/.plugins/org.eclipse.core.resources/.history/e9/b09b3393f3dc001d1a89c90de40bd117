@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>choice.html</title>
+</head>
+<body>
+	<h2>좋아하는것 Select</h2>
+	<!-- 
+		http://localhost:8081/step01_basic/view/choice.html
+		http://localhost:8081/step01_basic/print
+		-- step02 : Choice.java(/print)
+		-- 1) choice.html 값 선택 
+		-- 2) /print 서블릿에서 출력된 값 확인 
+	 --> 
+	<form action="/step01_basic/print" method="GET">
+		
+		<input type="checkbox" name="like" value="cat">고양이<br/>
+		<input type="checkbox" name="like" value="snack">과자<br/>
+		<input type="checkbox" name="like" value="movie">영화감상<br/>
+		<input type="checkbox" name="like" value="travel">여행<br/>
+		
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>

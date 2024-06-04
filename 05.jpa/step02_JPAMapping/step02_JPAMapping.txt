@@ -1,0 +1,35 @@
+[step02_JPAMapping]
+
+1. 매핑
+	- @OneToOne : 일대일(1:1)
+	- @OneToMany : 일대다(1:N)
+	- @ManyToOne : 다대일(N:1)
+	- @ManyToMany : 다대다(N:M)
+
+2. 방향성
+	- 단방향
+	- 양방향
+		- 관계의 주인 설정 필요
+		- 연관 관계의 주인은 외래 키(FK)가 있는 곳
+		- 연관 관계의 주인이 아닌 경우, mappedBy 속성으로 연관 관계의 주인을 지정해야함
+	
+3.  Fetch Strategy
+	- Entity 로딩 시, 연관 관계의 다른 Entity 로딩 전략 설정
+		- EAGER : 즉시로딩
+		- LAZY : 지연로딩
+
+3. JPQL(Java Persistence Query Language)
+	- 엔티티 객체를 대상으로 검색, 객체지향 쿼리
+	- JPQL 분석 -> SQL 생성 -> 데이터베이스 실행
+	- DB 벤더 비종속적
+
+	- 구문
+		- SELECT 
+			- 대소문자 구분
+			- 엔티티와 속성은 대소문자 구분
+			- JPQL 키워드는 구분하지 않음
+			- 테이블명 대신 엔티티명을 사용, @Entity(name=" ") 설정 가능
+			- 미지정  클래스명이 기본값(기본값을 추천)
+			- JPQL은 별칭 필수 (예시 SELECT e FROM EMP e;)
+			- AS 생략 가능
+			

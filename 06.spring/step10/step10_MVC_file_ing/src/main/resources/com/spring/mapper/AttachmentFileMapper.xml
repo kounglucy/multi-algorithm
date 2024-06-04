@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mapper.AttachmentFileMapper">
+ 	
+ 	<insert id="insertAttachmentFile" parameterType="com.spring.dto.AttachmentFile">
+ 		INSERT INTO attachment_file
+ 		VALUES (
+			    seq_attachment_file_no.NEXTVAL, 
+				#{filePath}, 
+				#{attachmentFileName},
+				#{attachmentOriginalFileName},
+				SYSDATE,
+				#{attachmentFileSize},
+				#{deptno}                            	
+ 		)
+ 	</insert>
+ 	
+ 	<select id="getAttachmentFileByDeptno" parameterType="_int" resultMap="attachmentFile">
+ 		SELECT 
+		    attachment_file_no,
+			file_path,
+			attachment_file_name,
+			attachment_file_original_name,
+			registered_date,
+			attachment_file_size,
+			deptno
+ 		FROM attachment_file
+ 		WHERE deptno = #{deptno}
+ 	</select>
+ 	
+ 	<resultMap type="com.spring.dto.AttachmentFile" id="attachmentFile">
+ 		<result property="attachmentFileNo" column="attachment_file_no"/>
+ 		<result property="filePath" column="file_path"/>
+ 		<result property="attachmentFileName" column="attachment_file_name"/>
+ 		<result property="attachmentOriginalFileName" column="attachment_file_original_name"/>
+ 		<result property="registeredDate" column="registered_date"/>
+ 		<result property="attachmentFileSize" column="attachment_file_size"/>
+ 		<result property="deptno" column="deptno"/>
+ 	</resultMap>
+ 	
+ 	<select id="getAttachmentFileByFileNo" parameterType="_int" resultMap="attachmentFile">
+ 		SELECT 
+		    attachment_file_no,
+			file_path,
+			attachment_file_name,
+			attachment_file_original_name,
+			registered_date,
+			attachment_file_size,
+			deptno
+ 		FROM attachment_file
+ 		WHERE attachment_file_no = #{fileNo}
+ 	</select>
+ 	
+ </mapper>

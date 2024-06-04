@@ -1,0 +1,37 @@
+1687833730821	Copy package
+1687833750363	Delete element
+1687833776758	Rename compilation unit 'TradingMapper.java'
+1687833904347	Delete element
+1687842529513	Rename package 'com.spring.dto'
+1687842537502	Rename package 'com.spring.controller'
+1687842558882	Copy package
+1687842615881	Rename package 'com.spring.service'
+1687842621694	Copy package
+1687842657310	Rename compilation unit 'ReviewMapper.java'
+1687843575069	Delete element
+1687843776158	Delete element
+1687843779544	Delete element
+1687843784956	Delete element
+1687843802174	Delete element
+1687843827826	Delete element
+1687843850681	Delete element
+1687843853517	Delete element
+1687843883718	Delete element
+1687843888528	Delete element
+1687843925457	Delete element
+1687843940055	Delete element
+1687843945534	Delete element
+1687844302261	Delete element
+1687844347747	Delete element
+1687844533021	Delete element
+1687844596104	Delete element
+1687844803718	Rename type 'DeptService'
+1687847237336	Rename type 'DeptController'
+1687914846441	Delete element
+1687914849819	Delete element
+1687915550702	Rename resource 'DeptMapper.xml'
+1687940490023	Copy compilation unit
+1687999233938	Copy file
+1688001951640	Delete element
+1688101147980	Delete element
+1688101159161	Rename type 'ReviewServiceImpl'

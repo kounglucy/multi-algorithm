@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mapper.CourseReviewMapper">
+
+ 	
+ 	<!-- 코스 리뷰 아이디 검색 -->
+ 	<select id="getCourseReviewByReviewId" resultType="com.spring.dto.CourseReview">
+ 		SELECT course_score as courseScore, content, course_review_id as courseReviewId
+ 		FROM course_review
+ 		WHERE course_review_id = #{courseReviewId}
+ 	</select>
+ 	
+    <!-- 코스 리뷰 등록 -->
+ 	<insert id="insertCourseReview" parameterType="com.spring.dto.CourseReview">
+ 		INSERT INTO course_review (course_review_id, course_id, user_id,content,review_date,course_score) 
+ 		VALUES (course_review_id_seq.nextval, #{courseId}, #{userId}, #{content},TO_CHAR(sysdate, 'YYYYMMDD'), #{courseScore} )
+
+ 	</insert>
+ 	
+ 	<!-- 코스 리뷰 수정 -->
+ 	<update id="updateCourseReview" parameterType="com.spring.dto.CourseReview">
+ 		UPDATE course_review
+ 		SET content = #{content}, 
+ 			course_score = #{courseScore}, 
+ 	        review_date = TO_CHAR(sysdate, 'YYYYMMDD')
+ 		WHERE course_review_id = #{courseReviewId}
+ 	</update>
+ 	
+ 	<!-- 코스 리뷰 삭제 -->
+ 	<delete id="deleteCourseReviewByReviewId" parameterType="_int">
+ 		DELETE FROM course_review
+ 		WHERE course_review_id = #{courseReviewId}
+ 	</delete>
+ 	
+ </mapper>

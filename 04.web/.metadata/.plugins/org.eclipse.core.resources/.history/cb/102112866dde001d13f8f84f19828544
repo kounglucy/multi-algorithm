@@ -1,0 +1,33 @@
+package dept.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import dept.util.DBUtil;
+
+public class DeptDAO {
+	
+	// Query : SELECT dname FROM dept WHERE deptno = ?
+	public static String getDeptByDeptno(int deptno) throws SQLException {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String dname = null;
+		String sql = "SELECT dname FROM dept WHERE deptno = ?";
+		
+		try {
+			con = DBUtil.getConnection();
+			
+		}finally {
+			
+		}
+		
+		return dname;
+	}
+
+}
+

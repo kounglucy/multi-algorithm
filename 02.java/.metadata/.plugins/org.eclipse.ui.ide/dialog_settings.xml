@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+		</list>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\multi\02.java\JDBC miniproject"/>
+			<item value="C:\multi\02.java\miniproject 2"/>
+			<item value="C:\multi\02.java\miniproject_0414"/>
+			<item value="C:\multi\02.java\miniProject"/>
+			<item value="C:\multi\02.java\miniProject_04_13"/>
+			<item value="C:\multi\02.java\step14_JDBC_MVC"/>
+			<item value="C:\multi\02.java\step15_JDBCProject_t11"/>
+			<item value="C:\multi\02.java\step14_JDBC_MVC_T"/>
+			<item value="C:\multi\02.java\step13_review"/>
+			<item value="C:\multi\02.java\step13_java"/>
+			<item value="C:\multi\02.java\step12_Jsoup"/>
+			<item value="C:\multi\02.java\step11_Network"/>
+			<item value="C:\multi\02.java\step10_Thread"/>
+			<item value="C:\multi\02.java\step08_OOPProject_t"/>
+			<item value="C:\multi\02.java\step08_OOPProject_c"/>
+			<item value="C:\multi\02.java\step07_maven"/>
+			<item value="C:\multi\02.java\step06_MVC_c"/>
+			<item value="C:\multi\02.java\step07_8syntax"/>
+			<item value="C:\multi\02.java\step04_OOP"/>
+			<item value="C:\multi\02.java\step03_MVC_t"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

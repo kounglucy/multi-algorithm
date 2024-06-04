@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mapper.PlaceReviewMapper">
+
+ 	<!-- 장소 리뷰 아이디 검색 -->
+ 	<select id="getPlaceReviewByPlaceId" resultType="com.spring.dto.PlaceReview">
+ 		SELECT place_score as placeScore, place_review_id as placeReviewId
+ 		FROM place_review_id
+ 		WHERE place_review_id = #{placeReviewId}
+ 	</select>
+ 	
+    <!-- 장소 리뷰 등록 -->
+ 	<insert id="insertPlaceReview" parameterType="com.spring.dto.PlaceReview">
+ 		INSERT INTO place_review (place_review_id, place_id, user_id,review_date, place_score) 
+ 		VALUES (place_review_id_seq.nextval, #{placeId}, #{userId}, sysdate, #{placeScore})
+ 	</insert>
+ 	
+ 	<!-- 장소 리뷰 수정 -->
+ 	<update id="updatePlaceReview" parameterType="com.spring.dto.PlaceReview">
+ 		UPDATE place_review
+ 		SET place_score = #{placeScore}, 
+ 			review_date = sysdate
+ 		WHERE place_review_id = #{placeReviewId}
+ 	</update>
+ 	
+ 	<!-- 장소 리뷰 삭제 -->
+ 	<delete id="deletePlaceReviewByPlaceId" parameterType="com.spring.dto.PlaceReview">
+ 		DELETE FROM place_review
+ 		WHERE place_review_id = #{placeReviewId}
+ 	</delete>
+ 	
+ </mapper>

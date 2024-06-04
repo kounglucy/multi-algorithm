@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    
+    <bean id="bizCar" class="biz.Car"/>
+    <bean id="common" class="common.NoticeAspect"/>
+    
+    <aop:config>
+       <aop:pointcut expression="execution(* biz.Car.buy(..))" id="buyLogic"/>
+    
+       <aop:aspect ref="common">
+            <aop:before method="noticeBuyStart"
+                        pointcut-ref ="buyLogic"/>
+            <aop:after  method="noticeBuyEnd"
+                        pointcut-ref ="buyLogic"/> 
+                        
+            <aop:after-returning method="noticeReturnValue"
+                                 pointcut="execution(* biz.Car.buyReturn(..))"
+                                 returning="value"/>  
+                                 
+             <aop:after-throwing method="noticeException"
+                                 pointcut="execution(* biz.Car.sellMoney(..))"
+                                 throwing="e"/>                    
+       </aop:aspect>
+    </aop:config>
+
+</beans>

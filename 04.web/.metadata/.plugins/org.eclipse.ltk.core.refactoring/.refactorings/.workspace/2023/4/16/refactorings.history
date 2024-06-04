@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;step06_ConnectionPoolBasic&apos;" deleteContents="false" description="Delete resource &apos;step06_ConnectionPoolBasic&apos;" element1="/step06_ConnectionPoolBasic" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1681871762638"/>&#x0A;<refactoring comment="Delete resource &apos;step07_ConnectionPoolBasic&apos;" deleteContents="false" description="Delete resource &apos;step07_ConnectionPoolBasic&apos;" element1="/step07_ConnectionPoolBasic" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1681871804556"/>
+</session>

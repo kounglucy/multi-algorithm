@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+/* 이미지 영역 */
+.place1 img {
+	width: 200px;
+    height: 150px;
+    position: fixed;
+	top : 50px;
+    left : 260px;
+}
+
+.place2 img {
+	width: 200px;
+    height: 150px;
+    position: fixed;
+	top: 50px;
+    left : 550px;
+}
+
+.place3 img {
+	width: 200px;
+    height: 150px;
+    position: fixed;
+	top: 250px;
+    left : 260px;
+}
+
+.place4 img {
+	width: 200px;
+    height: 150px;
+    position: fixed;
+    top: 250px;
+    left :550px;
+	
+}
+
+.place5 img {
+	width: 200px;
+    height: 150px;
+    position: fixed;
+	top : 450px;
+    left : 260px;
+	
+}
+
+/* 이미지  별점 영역 */
+.starsscore1 {
+	top: 200px;
+	left : 260px;
+	position: fixed;
+}
+
+.starsscore2 {
+	top: 200px;
+	left : 550px;
+	position: fixed;
+}
+
+.starsscore3 {
+	top: 400px;
+	left : 260px;
+	position: fixed;
+}
+
+.starsscore4 {
+	top: 400px;
+	left : 550px;
+	position: fixed;
+}
+
+.starsscore5 {
+	top: 600px;
+	left : 260px;
+	position: fixed;
+}
+
+
+/* 버튼  영역 */
+.insert-button {
+ background-color:#f0f8ff ;
+ padding: 8px 10px;
+ border: none;
+ border-radius: 4px;
+ font-size: 15px;
+ cursor: pointer;
+ margin: 2px;
+ float : right;
+
+ }
+ 
+ .insert-button:hover {
+   background-color: #87cefa;
+ }
+  	
+/* 리뷰 작성 영역 */
+.reviewText {
+display: flex;
+flex-direction: column;
+}
+
+.content_div{
+	padding-top: 10px;
+}
+
+.text {
+  background-color:#f0f8ff ;
+  height: 400px;
+  width: 400px;
+  border: 1px solid #f0f8ff;
+  padding: 12px 8px 12px 8px;
+  font-size: 15px;
+  resize: none;
+  margin-top: 10px; 
+  margin: 10px;
+  	
+}
+
+.coursereview {
+   position: fixed;
+   top: 0;
+   right: 0;
+    
+	
+}
+
+/* 별점  영역 */
+.starsscore {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore input{
+display:none;
+}
+
+.starsscore label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore label:hover,
+.starsscore label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore1 {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore1 input{
+display:none;
+}
+
+.starsscore1 label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore1 :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore1 label:hover,
+.starsscore1 label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore2 {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore2 input{
+display:none;
+}
+
+.starsscore2 label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore2 :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore2 label:hover,
+.starsscore2 label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore3 {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore3 input{
+display:none;
+}
+
+.starsscore3 label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore3 :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore3 label:hover,
+.starsscore3 label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore4 {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore4 input{
+display:none;
+}
+
+.starsscore4 label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore4 :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore4 label:hover,
+.starsscore4 label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore5 {
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:28px;
+ padding:0 .2em;
+}
+
+.starsscore5 input{
+display:none;
+}
+
+.starsscore5 label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore5 :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore5 label:hover,
+.starsscore5 label:hover ~ label {
+  color:#ffd700;
+}
+
+
+
+

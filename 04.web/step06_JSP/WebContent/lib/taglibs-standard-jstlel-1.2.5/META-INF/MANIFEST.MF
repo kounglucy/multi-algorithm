@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.taglibs.standard.lang.jstl.parser;uses:="or
+ g.apache.taglibs.standard.lang.jstl";version="1.2",org.apache.taglibs
+ .standard.lang.support;uses:="javax.servlet.jsp.tagext,javax.servlet.
+ jsp,org.apache.taglibs.standard.lang.jstl";version="1.2",org.apache.t
+ aglibs.standard.lang.jstl;uses:="org.apache.taglibs.standard.lang.jst
+ l.parser,javax.servlet,javax.servlet.jsp,org.apache.taglibs.standard.
+ lang.support,javax.servlet.jsp.tagext,javax.servlet.http";version="1.
+ 2",org.apache.taglibs.standard.tag.el.fmt;uses:="org.apache.taglibs.s
+ tandard.lang.support,javax.servlet.jsp.tagext,org.apache.taglibs.stan
+ dard.tag.common.fmt,javax.servlet.jsp,javax.servlet.jsp.jstl.fmt";ver
+ sion="1.2",org.apache.taglibs.standard.tag.el.sql;uses:="org.apache.t
+ aglibs.standard.lang.support,org.apache.taglibs.standard.tag.common.s
+ ql,javax.servlet.jsp.tagext,javax.servlet.jsp";version="1.2",org.apac
+ he.taglibs.standard.tag.el.xml;uses:="org.apache.taglibs.standard.tag
+ .common.xml,javax.servlet.jsp.tagext,org.apache.taglibs.standard.tag.
+ el.core,javax.servlet.jsp,org.apache.taglibs.standard.tag.common.core
+ ,org.xml.sax,javax.xml.transform";version="1.2",org.apache.taglibs.st
+ andard.tlv.el;uses:="org.apache.taglibs.standard.tlv,org.apache.tagli
+ bs.standard.lang.support";version="1.2",org.apache.taglibs.standard.t
+ ag.el.core;uses:="org.apache.taglibs.standard.lang.support,org.apache
+ .taglibs.standard.tag.common.core,javax.servlet.jsp.tagext,javax.serv
+ let.jsp,javax.servlet.jsp.jstl.core";version="1.2"
+Implementation-Title: Apache Standard Taglib 1.0 EL Support
+Implementation-Version: 1.2.5
+Built-By: jeremy
+Tool: Bnd-0.0.357
+Bundle-Name: Apache Standard Taglib 1.0 EL Support
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: The Apache Software Foundation
+Build-Jdk: 1.6.0_65
+Bundle-Version: 1.2.5
+Bnd-LastModified: 1426003903857
+Bundle-ManifestVersion: 2
+Bundle-Description: Support JSTL 1.0 tags using the original EL implem
+ entation.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-DocURL: http://tomcat.apache.org/taglibs/standard-1.2.5/taglibs
+ -standard-jstlel
+Bundle-SymbolicName: org.apache.taglibs.standard-jstlel
+Import-Package: javax.servlet,javax.servlet.http,javax.servlet.jsp,jav
+ ax.servlet.jsp.jstl.core,javax.servlet.jsp.jstl.fmt,javax.servlet.jsp
+ .tagext,javax.xml.transform,org.apache.taglibs.standard.lang.jstl;ver
+ sion="1.2",org.apache.taglibs.standard.lang.jstl.parser;version="1.2"
+ ,org.apache.taglibs.standard.lang.support;version="1.2",org.apache.ta
+ glibs.standard.tag.common.core,org.apache.taglibs.standard.tag.common
+ .fmt,org.apache.taglibs.standard.tag.common.sql,org.apache.taglibs.st
+ andard.tag.common.xml,org.apache.taglibs.standard.tag.el.core;version
+ ="1.2",org.apache.taglibs.standard.tag.el.fmt;version="1.2",org.apach
+ e.taglibs.standard.tag.el.sql;version="1.2",org.apache.taglibs.standa
+ rd.tag.el.xml;version="1.2",org.apache.taglibs.standard.tlv,org.apach
+ e.taglibs.standard.tlv.el;version="1.2",org.xml.sax
+

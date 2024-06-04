@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="step16_BootMybatis_Props"/>
+<aop-project name="step16_FinalProject"/>
+<aop-project name="step11_API"/>
+<aop-project name="step18_NaverAPI_api"/>
+<aop-project name="FinalProject"/>
+<aop-project name="step18_NaverAPI"/>
+<aop-project name="step00.intro"/>
+<aop-project name="step09_File"/>
+<aop-project name="step12_mongodb"/>
+<aop-project name="step10_MVC_file_ing"/>
+<aop-project name="miniproject"/>
+<aop-project name="step14_JavaConfig"/>
+<aop-project name="CourseToGO"/>
+<aop-project name="step04_AOPAnnotaion">
+<aspect-definition advice-class-name="common.AroundAspect" advice-method-name="aroundAspect(org.aspectj.lang.JoinPoint)" advice-type="AROUND" aspect-end-line-number="13" aspect-name="aroundAspect" aspect-start-line-number="13" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/step04_AOPAnnotaion/src/main/resources/aop.xml" pointcut-expression="execution(* biz.Car.*(..))" proxy-target-class="false">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:step04_AOPAnnotaion|3:src/main/resources/aop.xml|7:beans:8|8:car:8" bean-file="/step04_AOPAnnotaion/src/main/resources/aop.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step04_AOPAnnotaion/src/main/resources/aop.xml" source="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{AroundAspect.java[AroundAspect~aroundAspect~QJoinPoint;" source-start-line="15" target="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buyMoney~I" target-start-line="14"/>
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:step04_AOPAnnotaion|3:src/main/resources/aop.xml|7:beans:8|8:car:8" bean-file="/step04_AOPAnnotaion/src/main/resources/aop.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step04_AOPAnnotaion/src/main/resources/aop.xml" source="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{AroundAspect.java[AroundAspect~aroundAspect~QJoinPoint;" source-start-line="15" target="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buyReturn" target-start-line="19"/>
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:step04_AOPAnnotaion|3:src/main/resources/aop.xml|7:beans:8|8:car:8" bean-file="/step04_AOPAnnotaion/src/main/resources/aop.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step04_AOPAnnotaion/src/main/resources/aop.xml" source="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{AroundAspect.java[AroundAspect~aroundAspect~QJoinPoint;" source-start-line="15" target="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~sellMoney~I" target-start-line="24"/>
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:step04_AOPAnnotaion|3:src/main/resources/aop.xml|7:beans:8|8:car:8" bean-file="/step04_AOPAnnotaion/src/main/resources/aop.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step04_AOPAnnotaion/src/main/resources/aop.xml" source="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{AroundAspect.java[AroundAspect~aroundAspect~QJoinPoint;" source-start-line="15" target="=step04_AOPAnnotaion/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buy" target-start-line="9"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="step01_DI"/>
+<aop-project name="step02_MyBatis"/>
+<aop-project name="step13_practice_eunbit"/>
+<aop-project name="step19_mongodb_log"/>
+<aop-project name="step06_MVCSession"/>
+<aop-project name="step17_Search_Pagination_c"/>
+<aop-project name="step05_MVCBasic"/>
+<aop-project name="step16_BootMybatis"/>
+<aop-project name="step14_JavaConfig_DynamicSQL"/>
+<aop-project name="step08_Interceptor"/>
+<aop-project name="springbootproject"/>
+<aop-project name="step03_AOPBasic">
+<aspect-definition advice-class-name="common.NoticeAspect" advice-method-name="noticeException" advice-type="AFTER_THROWING" aspect-end-line-number="28" aspect-name="common" aspect-start-line-number="26" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" pointcut-expression="execution(* biz.Car.sellMoney(..))" proxy-target-class="false" throwing="e">
+<aop-reference advice-type="AFTER_THROWING" bean="1:BeansModel|2:step03_AOPBasic|3:src/main/resources/aop.xml|7:beans:8|8:bizCar:10" bean-file="/step03_AOPBasic/src/main/resources/aop.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" source="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{NoticeAspect.java[NoticeAspect~noticeException~QException;" source-start-line="20" target="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~sellMoney~I" target-start-line="21"/>
+</aspect-definition>
+<aspect-definition advice-class-name="common.NoticeAspect" advice-method-name="noticeBuyStart" advice-type="BEFORE" aspect-end-line-number="18" aspect-name="common" aspect-start-line-number="17" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" pointcut-expression="execution(* biz.Car.buy(..))" proxy-target-class="false">
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:step03_AOPBasic|3:src/main/resources/aop.xml|7:beans:8|8:bizCar:10" bean-file="/step03_AOPBasic/src/main/resources/aop.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" source="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{NoticeAspect.java[NoticeAspect~noticeBuyStart" source-start-line="5" target="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buy" target-start-line="6"/>
+</aspect-definition>
+<aspect-definition advice-class-name="common.NoticeAspect" advice-method-name="noticeBuyEnd" advice-type="AFTER" aspect-end-line-number="20" aspect-name="common" aspect-start-line-number="19" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" pointcut-expression="execution(* biz.Car.buy(..))" proxy-target-class="false">
+<aop-reference advice-type="AFTER" bean="1:BeansModel|2:step03_AOPBasic|3:src/main/resources/aop.xml|7:beans:8|8:bizCar:10" bean-file="/step03_AOPBasic/src/main/resources/aop.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" source="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{NoticeAspect.java[NoticeAspect~noticeBuyEnd" source-start-line="9" target="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buy" target-start-line="6"/>
+</aspect-definition>
+<aspect-definition advice-class-name="common.NoticeAspect" advice-method-name="noticeReturnValue" advice-type="AFTER_RETURNING" aspect-end-line-number="24" aspect-name="common" aspect-start-line-number="22" factory-id="org.springframework.ide.eclipse.aop.core.beanAspectDefinitionElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" pointcut-expression="execution(* biz.Car.buyReturn(..))" proxy-target-class="false" returning="value">
+<aop-reference advice-type="AFTER_RETURNING" bean="1:BeansModel|2:step03_AOPBasic|3:src/main/resources/aop.xml|7:beans:8|8:bizCar:10" bean-file="/step03_AOPBasic/src/main/resources/aop.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/step03_AOPBasic/src/main/resources/aop.xml" source="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;common{NoticeAspect.java[NoticeAspect~noticeReturnValue~QString;" source-start-line="14" target="=step03_AOPBasic/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;biz{Car.java[Car~buyReturn" target-start-line="16"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="step15_BootBasic"/>
+<aop-project name="step07_MVC"/>
+</aop-reference-model>

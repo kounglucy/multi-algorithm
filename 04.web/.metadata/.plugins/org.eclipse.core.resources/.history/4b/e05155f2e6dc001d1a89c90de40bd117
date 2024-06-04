@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+   <h1>Login</h1>
+   <form action="/check" method ="GET">
+     id : <input type = "text"> <br/>
+     pw : <input type = "password">
+      <input type = "submit" value = "로그인">
+   </form>
+</body>
+</html>

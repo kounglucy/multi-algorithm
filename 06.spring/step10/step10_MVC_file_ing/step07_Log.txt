@@ -1,0 +1,63 @@
+1. 로그(log)
+	- 소프트웨어의 이벤트를 기록
+	- 소프트웨어의 상태 파악 및 발생 문제 해결을 위함
+	
+	- 장점 
+		- 상황별 level 지정 가능
+		- 다양한 출력 형식 지원
+		- 프레임 워크를 이용하여 간단하고 쉽게 사용 가능
+	
+	- 종류 
+		- slf4j
+			* http://www.slf4j.org/manual.html
+			- Simple Logging Facade For Java
+			- logger의 인터페이스로 다른 로깅 프레임 워크의 추상화 계층 역할 담당
+			- 코드 유지 및 구현체 전환을 통한 로깅 프레임워크 전환 편리
+			
+		- log4j
+			- 가장 오래된 Apache Java 기반 로깅 프레임 워크
+			- 콘솔 및 파일 출력의 형태 가능
+			- 구성 
+				- Logger	로그 메시지 Appender에 전달
+				- Appender	로그 출력 위치
+				- Layout	로그 출력 형식
+				
+			- 레벨 level
+				- FATAL		심각한 에러 발생
+				- ERROR		요청을 처리시 문제 발생
+				- WARN		실행에는 문제 없으나 향후 에러의 원인 가능 메세지
+				- INFO		상태변경 등의 정보 메세지
+				- DEBUG		개발시 디버그 메세지
+				- TRACE		디버그 보다 상세 이벤트 출력 메시지
+				
+		- logback
+			* https://logback.qos.ch/
+			- Spring Boot 내장 slf4j 기반 로깅 프레임워크
+			- 로그 레벨 변경 등의 서버 재시작 없는 자동 리로딩 지원 등
+			
+		- log4j2
+			* https://logging.apache.org/log4j/2.x/performance.html
+			- 가장 최신 로깅 프레임워크
+			- 자동 리로딩 지원
+			- 멀티 스레드 환경에서 비동기 로거 사용시 처리량이 많고 대기 시간이 짧음, 람다식 지원 등		
+			
+* 참고) layout
+	* https://logging.apache.org/log4j/2.x/manual/configuration.html
+	* https://www.egovframe.go.kr/wiki/doku.php?id=egovframework:rte3:fdl:%EC%84%A4%EC%A0%95_%ED%8C%8C%EC%9D%BC%EC%9D%84_%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94_%EB%B0%A9%EB%B2%95
+	
+	%p : 로그레벨을 출력
+	%m : 로그내용이 출력
+	%d : 로그가 발생한 시간을 출력
+		  포맷은 %d{HH:mm:ss}, %d{yyyy-MM-dd HH:mm:ss}같은 형태로 사용하며, SimpleDateFormat 참고
+	%t : 로그가 발생된 스레드의 이름을 출력
+	%% : % 표시를 출력하기 위해 사용
+	%n : 플랫폼 종속적인 개행문자가 출력된다. (\r\n 또는 \n)
+	%c : 해당되는 로거의 이름을 끝에서부터 출력 ex. %c{끝에서부터 숫자}
+	%C : 클래스명을 출력 ex. %C{끝에서부터 숫자}
+	%F : 로깅이 발생한 프로그램 파일명을 출력
+	%l : 로깅이 발생한 caller의 정보를 출력
+	%L : 로깅이 발생한 caller의 라인수를 출력
+	%M : 로깅이 발생한 method명을 출력
+	%r : 어플리케이션 시작 이후 부터 로깅이 발생한 시점의 시간(milliseconds)을 출력
+	%x : 로깅이 발생한 thread와 관련된 NDC(nested diagnostic context)를 출력
+	%X : 로깅이 발생한 thread와 관련된 MDC(mapped diagnostic context)를 출력

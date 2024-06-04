@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+.sidebar {
+	font-family: 'Paytone One', sans-serif;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #87ceeb;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.3); /* 우측에 그림자 효과 추가 */
+}
+
+/* 로고 스타일 */
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #00008b;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    color: #1e90ff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.name {
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+
+.email {
+    color: #808080;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.logout-btn, .edit-profile-btn {
+    display: block;
+    background-color: #808080;
+    color: #b0c4de;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px; 
+    margin-bottom: 10px;
+    font-size:5px
+}

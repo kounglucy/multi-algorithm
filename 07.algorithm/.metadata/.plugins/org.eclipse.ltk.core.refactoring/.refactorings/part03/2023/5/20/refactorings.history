@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;part01.SortTest&apos; to &apos;SelectionSort&apos;&#x0D;&#x0A;- Original project: &apos;part03&apos;&#x0D;&#x0A;- Original element: &apos;part01.SortTest&apos;&#x0D;&#x0A;- Renamed element: &apos;part01.SelectionSort&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SortTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;part01{SortTest.java[SortTest" matchStrategy="1" name="SelectionSort" qualified="false" references="true" similarDeclarations="false" stamp="1684462474977" textual="false" version="1.0"/>
+</session>

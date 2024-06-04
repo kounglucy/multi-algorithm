@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mapper.ReviewMapper">
+ 	 	
+ 	<!-- 모든 댓글 보기 -->
+ 	<select id="getallreview" resultType="com.spring.dto.Review">
+ 		SELECT reviewId, userId, courseId,content,reDate,rating FROM review
+ 	</select>
+ 	
+    <!-- 댓글 등록 -->
+ 	<insert id="enrollReview" parameterType="com.spring.dto.Review">
+ 		INSERT INTO Review (reviewId, userId, courseId,content,reDate,rating) 
+ 		VALUES (#{reviewId}, #{userId}, #{courseId}, #{content}, #{reDate}, #{rating})
+ 	</insert>
+ 	
+ 	<!-- 댓글 수정 -->
+ 	<update id="updateReview" parameterType="com.spring.dto.Review">
+ 		UPDATE review 
+ 		SET content = #{content}, 
+ 			rating = #{rating} 
+ 		WHERE reviewId = #{reviewId}
+ 	</update>
+ 	
+ 	<!-- 댓글 삭제 -->
+ 	<delete id="deleteReview" parameterType="com.spring.dto.Review">
+ 		DELETE FROM review
+ 		WHERE reviewId = #{reviewId}
+ 	</delete>
+ 	
+ 	<!-- 평균 평점 구하기 -->
+ 	<select id="getRatingAverage" resultType="double">
+  	
+  		select avg(rating)
+  		from review
+  		where courseId = #{courseId}
+  	
+  	</select>
+  	
+    <!-- 평균 평점 반영하기 -->
+	<update id="updateRating">
+	
+		update course
+		set ratingAvg = #{ratingAvg}
+		where courseId = #{courseId}
+	
+	</update> 		
+ 	
+ </mapper>

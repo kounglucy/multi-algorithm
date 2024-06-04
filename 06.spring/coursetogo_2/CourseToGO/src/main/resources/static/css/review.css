@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+/* 별점  영역 */
+.starsscore{
+ text-align:center;
+ display:flex;
+ direction: rtl;
+ justify-content: flex-end;
+ font-size:1.5em;
+ padding:0 .2em;
+}
+
+.starsscore input{
+display:none;
+}
+
+.starsscore label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.starsscore :checked ~ label {
+  color:#ffd400;
+}
+
+.starsscore label:hover,
+.starsscore label:hover ~ label {
+  color:#ffd700;
+}
+
+.starsscore input: checked ~ label.half:before {
+	content : '/OOBD/2605';
+}
+
+/* 버튼  영역 */
+.insert-button {
+ background-color:#f0f8ff ;
+ padding: 8px 10px;
+ border: none;
+ border-radius: 4px;
+ font-size: 15px;
+ cursor: pointer;
+ margin: 2px;
+ float : right;
+
+ }
+ 
+ .insert-button:hover {
+   background-color: #87cefa;
+ }
+  	
+/* 리뷰 작성 영역 */
+.reviewText {
+display: flex;
+flex-direction: column;
+}
+
+.content_div{
+	padding-top: 10px;
+}
+
+.text {
+  background-color:#f0f8ff ;
+  height: 400px;
+  width: 400px;
+  border: 1px solid #f0f8ff;
+  padding: 12px 8px 12px 8px;
+  font-size: 15px;
+  resize: none;
+  margin-top: 10px; 
+  margin: 10px;
+  	
+}
+
+.coursereview {
+	position: fixed;
+    top: 0;
+    right: 0;
+    
+	
+}
+

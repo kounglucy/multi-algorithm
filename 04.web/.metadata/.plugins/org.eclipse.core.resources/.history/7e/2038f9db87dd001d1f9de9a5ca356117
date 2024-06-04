@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>customer</title>
+</head>
+<body>
+	<h2>Add</h2>
+	
+	<form action="" method="">
+		id : <input type="text" name="" > <br />
+		pw : <input type="password" name="" > <br />
+		grade :	<input type="text" name="" > <br />
+		
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

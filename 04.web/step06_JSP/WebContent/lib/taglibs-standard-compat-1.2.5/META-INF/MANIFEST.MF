@@ -1,0 +1,42 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.taglibs.standard.tag.compat.sql;uses:="java
+ x.el,org.apache.taglibs.standard.tag.common.sql,org.apache.taglibs.st
+ andard.util,javax.servlet.jsp";version="1.2",org.apache.taglibs.stand
+ ard.tag.compat.fmt;uses:="javax.el,org.apache.taglibs.standard.util,o
+ rg.apache.taglibs.standard.tag.common.fmt,javax.servlet.jsp,javax.ser
+ vlet.jsp.jstl.fmt";version="1.2",org.apache.taglibs.standard.tag.comp
+ at.core;uses:="org.apache.taglibs.standard.tag.common.core,javax.el,o
+ rg.apache.taglibs.standard.util,javax.servlet.jsp,javax.servlet.jsp.j
+ stl.core";version="1.2",org.apache.taglibs.standard.tlv.compat;uses:=
+ "org.apache.taglibs.standard.tlv";version="1.2",org.apache.taglibs.st
+ andard.tag.compat.xml;uses:="javax.el,org.apache.taglibs.standard.tag
+ .common.xml,org.apache.taglibs.standard.util,javax.servlet.jsp,org.xm
+ l.sax,javax.xml.transform";version="1.2"
+Implementation-Title: Apache Standard Taglib 1.0 Compatibility
+Implementation-Version: 1.2.5
+Built-By: jeremy
+Tool: Bnd-0.0.357
+Bundle-Name: Apache Standard Taglib 1.0 Compatibility
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: The Apache Software Foundation
+Build-Jdk: 1.6.0_65
+Bundle-Version: 1.2.5
+Bnd-LastModified: 1426003896359
+Bundle-ManifestVersion: 2
+Bundle-Description: Supports JSTL 1.0 tags using the Servlet container
+ 's EL implementation.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-DocURL: http://tomcat.apache.org/taglibs/standard-1.2.5/taglibs
+ -standard-compat
+Bundle-SymbolicName: org.apache.taglibs.standard-compat
+Import-Package: javax.el,javax.servlet.jsp,javax.servlet.jsp.jstl.core
+ ,javax.servlet.jsp.jstl.fmt,javax.xml.transform,org.apache.taglibs.st
+ andard.tag.common.core,org.apache.taglibs.standard.tag.common.fmt,org
+ .apache.taglibs.standard.tag.common.sql,org.apache.taglibs.standard.t
+ ag.common.xml,org.apache.taglibs.standard.tag.compat.core;version="1.
+ 2",org.apache.taglibs.standard.tag.compat.fmt;version="1.2",org.apach
+ e.taglibs.standard.tag.compat.sql;version="1.2",org.apache.taglibs.st
+ andard.tag.compat.xml;version="1.2",org.apache.taglibs.standard.tlv,o
+ rg.apache.taglibs.standard.tlv.compat;version="1.2",org.apache.taglib
+ s.standard.util,org.xml.sax
+
