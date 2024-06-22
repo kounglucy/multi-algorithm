@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="step07_ConnectionPoolBasic">
-        <property name="context-root" value="step07_ConnectionPoolBasic"/>
-        <property name="java-output-path" value="/step07_ConnectionPoolBasic/build/classes"/>
-    </wb-module>
-</project-modules>
